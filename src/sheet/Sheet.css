@@ -1,0 +1,15 @@
+/*
+Goal
+    - Grid is not working 
+        - grid needs to be flipped to show columns first and then rows - done
+*/
+
+.sheet {
+    background-color: red;
+    border-style: dotted;
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(26, 1fr);
+    grid-template-rows: repeat(30, 1fr);
+}

@@ -1,0 +1,60 @@
+/* 
+TO-DO
+- border needs to be adjusted to be thick and dark
+*/
+
+.base-cell {
+    height: 50px;
+    width: 100px;
+    border-style: solid;
+    border-radius: 10px;
+    font-size-adjust: initial;
+    font-size: large;
+    border-color: black;
+    border-radius: 5px;
+}
+
+.base-cell:read-only {
+    background-color: grey;
+}
+
+.base-cell:focus {
+    background-color: coral;
+}
+
+/* Related to HOC */
+
+.row-numbering {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    background-color: indianred;
+
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.col-alphabetized {
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    background-color: indianred;
+
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.col-alphabetized-container {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 27;
+}
+
+.layout-hoc {
+    /*
+        incrementing # of rows and columns by +1 each to accomodate the identifiers
+    */
+    grid-template-columns: repeat(27, 1fr);
+    grid-template-rows: repeat(31, 1fr);
+}

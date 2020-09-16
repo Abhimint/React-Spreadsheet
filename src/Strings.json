@@ -1,0 +1,33 @@
+{
+    "alphabetList": [
+        "A", 
+        "B", 
+        "C", 
+        "D", 
+        "E", 
+        "F", 
+        "G", 
+        "H", 
+        "I", 
+        "J", 
+        "K", 
+        "L",
+        "M", 
+        "N", 
+        "O", 
+        "P", 
+        "Q", 
+        "R", 
+        "S", 
+        "T", 
+        "U", 
+        "V", 
+        "W", 
+        "X", 
+        "Y", 
+        "Z"
+    ], 
+    "formulaPlaceholder": "e.g '=A3+A4' or '=4-2'",
+    "formualSubmitBtn": "Compute",
+    "formulaLabel": "Formula"
+}
