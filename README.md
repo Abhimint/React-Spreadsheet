@@ -2,6 +2,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Run site here --> https://abhimint.github.io/React-Spreadsheet/
 
+## Note to Self
+
+Everytime you make a change, have to run `npm run deploy` to trigger prod build to be shifted into the gh-pages branch
+
 ## Available Scripts
 
 In the project directory, you can run:
