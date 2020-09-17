@@ -43,7 +43,7 @@ export default class Cell extends React.Component{
             // <cellContentContext.Consumer>
             // <CellContext.Consumer>
                 <input 
-                    type="text"
+                    type="number"
                     className="base-cell"
                     id={this.props.id}
                     ref={this.thisCell}

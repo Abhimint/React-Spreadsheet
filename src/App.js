@@ -16,20 +16,8 @@ class App extends React.Component{
   }
 
   handleClick = (currentActiveCell) => {
-    // state at this point will only produce "pending state" which is always a step behind
-    // cannot use it in the same function. Let the cycle of the state update complete before using 
-    // it elsewhere
     this.setState({activeCell: currentActiveCell});
     console.warn('Currently Active cell is', currentActiveCell);
-  }
-
-  handleChange = (formulaBarRealTimeInput) => {
-    // updating the state and writing it to the cell. Not the best implementation as this
-    // should have been done using Redux best or atleast via context api or props sent down
-    const activeCell = document.getElementById(this.state.activeCell);
-    this.setState({cellInput: formulaBarRealTimeInput}, () => {
-      activeCell.value = this.state.cellInput;
-    });
   }
 
   render() {
@@ -50,10 +38,7 @@ class App extends React.Component{
               Learn React
             </a>
               <Cell id="firstCell" />
-              <FormulaBar
-                // activeCellToWriteTo={this.state.activeCell}
-                realTimeFormulaInput={this.handleChange.bind(this)}
-              />
+              <FormulaBar />
               <Sheet 
                 activeCellChangeCallback={this.handleClick.bind(this)}
                 inputForActiveCell={this.state.cellInput}
