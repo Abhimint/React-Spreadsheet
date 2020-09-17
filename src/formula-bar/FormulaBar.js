@@ -57,8 +57,8 @@ export default class FormulaBar extends React.Component {
         }
 
         // #2 - Send Formula input back to parent as callback
-        const {realTimeFormulaInput} = this.props;
-        realTimeFormulaInput(changeEvent.target.value);
+        // const {realTimeFormulaInput} = this.props;
+        // realTimeFormulaInput(changeEvent.target.value);
 
         const numericVal = getCellNumericValue(changeEvent);
         console.warn("Numeric value function testing", numericVal);
@@ -86,7 +86,6 @@ export default class FormulaBar extends React.Component {
                     className="formula"
                     placeholder={strings.formulaPlaceholder}
                     onChange={(event) => this.handleChange(event)}
-                    // value={this.props.inputValue}
                 >
                 </input>
             </form>
