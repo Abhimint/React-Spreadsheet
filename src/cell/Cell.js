@@ -47,12 +47,9 @@ export default class Cell extends React.Component{
                     className="base-cell"
                     id={this.props.id}
                     ref={this.thisCell}
-                    // disabled={(this.state.disabled) ? "disabled" : ""}
                     readOnly={this.state.readOnly}
                     onFocus={this.stateWhenFocused.bind(this)}
                     onDoubleClick={this.enableForAddingValue.bind(this)}
-                    // onChange={this.props.handleChange}
-                    // value={this.context}
                 >
                 </input>
             // </CellContext.Consumer>
