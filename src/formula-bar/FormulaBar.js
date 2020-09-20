@@ -49,12 +49,7 @@ export default class FormulaBar extends React.Component {
                 - for this, always have the '=' sign prefilled by default (onActive)
     */
     handleChange(changeEvent) {
-        // #1 - Sanitize input to conform to the requirements  
-        let allowedOperandsPattern = /[\s?\d+^\w+\s?]/
-        console.warn(allowedOperandsPattern.test(changeEvent.target.value));
-        if(changeEvent.target.value.charAt(0) === "=") {
-            console.warn(changeEvent.target.value);
-        }
+        
 
         // #2 - Send Formula input back to parent as callback
         // const {realTimeFormulaInput} = this.props;
@@ -67,10 +62,24 @@ export default class FormulaBar extends React.Component {
         // console.warn("Current cell to write to", this.props.activeCellToWriteTo);
     }
 
+    // handle submit is not doing anything as it is overwritten by afterSubmit
+    handleSubmit = (computeEvent) => {
+        // #1 - Sanitize input to conform to the requirements  
+        // number accepting regex --> /[\-?\+?\d+\+?\-?]/
+        let allowedOperandsPattern_old = /[\s?\d+^\w+\s?^[\d+\s+]]/
+        let allowedOperandsPattern = /\w/;
+        console.warn(allowedOperandsPattern.test(computeEvent.target.value));
+
+        if(computeEvent.target.value.charAt(0) === "=") {
+            console.warn(computeEvent.target.value);
+        }
+    }
+
     afterSubmit(event) {
         event.preventDefault();
         // event.target.children[1].value <-- value of the input on submit
-        let allowedOperandStructure = /\w\d\d?/;
+        let allowedOperandStructure_old = /\w\d\d?/;  // /\+?\-?[A-Z]{0,1}[0-9]{1,2}\+?\-?/g
+        let allowedOperandStructure = /^(([A-Z]{0,1})[0-9]{1,2})^(\#)/g;
         allowedOperandStructure.test(event.target.children[1].value) ?
             console.warn("Input operand structure is correct") :
             console.warn("Input operand structure is incorrect so please rectify");
@@ -85,9 +94,16 @@ export default class FormulaBar extends React.Component {
                 <input
                     className="formula"
                     placeholder={strings.formulaPlaceholder}
-                    onChange={(event) => this.handleChange(event)}
+                    // onChange={(event) => this.handleChange(event)}
+                    onSubmit={(computeEvent) => this.handleSubmit(computeEvent)}
                 >
                 </input>
+                <button
+                    className="formSubmit"
+                    type="submit"
+                >
+                    Compute
+                </button>
             </form>
         );
         
