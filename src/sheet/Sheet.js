@@ -30,11 +30,6 @@ class Sheet extends React.Component {
     }
 
     render() {
-        const rowsToRender = [];
-        for (let rows = 0; rows <= 30; rows++){
-            rowsToRender.push(<div>{rows.toString}</div>+"\n");
-        }
-
         const cellsToRender = [];
         for (let rows = 0; rows <= 30; rows++){
             for (let cols = 0; cols <= strings.alphabetList.length - 1; cols++){
