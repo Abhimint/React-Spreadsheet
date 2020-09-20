@@ -1,7 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Cell from './cell/Cell';
 import Sheet from './sheet/Sheet';
 import FormulaBar from './formula-bar/FormulaBar';
 // import CellProvider from './context-provider/CellProvider';
