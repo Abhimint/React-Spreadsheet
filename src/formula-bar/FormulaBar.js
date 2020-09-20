@@ -9,22 +9,9 @@ export default class FormulaBar extends React.Component {
         this.state = {}
     }
 
-    // handle submit is not doing anything as it is overwritten by afterSubmit
-    handleSubmit = (computeEvent) => {
-        // #1 - Sanitize input to conform to the requirements  
-        // number accepting regex --> /[\-?\+?\d+\+?\-?]/
-        let allowedOperandsPattern_old = /[\s?\d+^\w+\s?^[\d+\s+]]/
-        let allowedOperandsPattern = /\w/;
-        console.warn(allowedOperandsPattern.test(computeEvent.target.value));
-
-        if(computeEvent.target.value.charAt(0) === "=") {
-            console.warn(computeEvent.target.value);
-        }
-    }
-
     afterSubmit(event) {
         event.preventDefault();
-        let allowedOperandStructure = /^(([A-Z]{0,1})[0-9]{1,2})^(\#)/g;
+        let allowedOperandStructure = /^(([A-Z]{0,1})[0-9]{1,2})/g;
         allowedOperandStructure.test(event.target.children[1].value) ?
             console.warn("Input operand structure is correct") :
             console.warn("Input operand structure is incorrect so please rectify");
@@ -39,7 +26,6 @@ export default class FormulaBar extends React.Component {
                 <input
                     className="formula"
                     placeholder={strings.formulaPlaceholder}
-                    onSubmit={(computeEvent) => this.handleSubmit(computeEvent)}
                 >
                 </input>
                 <button
