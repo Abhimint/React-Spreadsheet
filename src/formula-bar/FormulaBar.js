@@ -9,11 +9,14 @@ export default class FormulaBar extends React.Component {
         this.state = {}
     }
 
+    // TODO: Need to upgrade RegEx pattern to utilize ONLY + or - to sunset using math.js. Too bulky
+
     afterSubmit(event) {
         event.preventDefault();
+        const {computedValue} = this.props;
         let allowedOperandStructure = /^(([A-Z]{0,1})[0-9]{1,2})/g;
         allowedOperandStructure.test(event.target.children[1].value) ?
-            console.warn("Input operand structure is correct") :
+            computedValue(getCellNumericValue((event.target.children[1].value))) :
             console.warn("Input operand structure is incorrect so please rectify");
     }
 

@@ -1,11 +1,13 @@
+import { evaluate } from 'mathjs';
+
 // update this to accomodate infinite # of params
 export const addOrSubtract = (operandA, operandB, operation) => {
     return (operation === "+") ? (operandA + operandB) : (operandA - operandB)
 }
 
-export const getCellNumericValue = (cellID) => {
-    if (!!document.getElementById(cellID)){
-        return +(document.getElementById(cellID).value);
+export const getCellNumericValue = (formulaBarOutput) => {
+    if (!!formulaBarOutput){
+        return evaluate(formulaBarOutput);
     } else {
         return;
     }
