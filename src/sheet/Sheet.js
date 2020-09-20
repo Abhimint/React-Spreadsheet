@@ -23,9 +23,9 @@ class Sheet extends React.Component {
     }
 
     getActiveCell = (event) => {
+        // Callback from parent to fill active cell value
         const {activeCellChangeCallback} = this.props;
         activeCellChangeCallback(event.target.id);
-
         this.setState({currentActiveCell: event.target});
     }
 

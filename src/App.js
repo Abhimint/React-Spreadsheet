@@ -10,8 +10,7 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      activeCell: '',
-      cellInput: ''
+      activeCell: ''
     }
   }
 
@@ -20,15 +19,21 @@ class App extends React.Component{
     console.warn('Currently Active cell is', currentActiveCell);
   }
 
+  handleFormulaBarResult = (formulaBarResult) => {
+    const activeCell = document.getElementById(this.state.activeCell);
+    activeCell.value = formulaBarResult;
+  }
+
   render() {
     return (
       // <CellProvider value={this.state.cellInput}> 
         <div className="App">
           <header className="App-header">
-            <FormulaBar />
+            <FormulaBar 
+              computedValue={this.handleFormulaBarResult.bind(this)}
+            />
             <Sheet 
               activeCellChangeCallback={this.handleClick.bind(this)}
-              inputForActiveCell={this.state.cellInput}
             />
           </header>
       </div>
